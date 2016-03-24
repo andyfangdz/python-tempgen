@@ -1,0 +1,4 @@
+{
+  "env/lib/python2.7/site-packages/wheel/test/test_basic.py::test_pydist": true, 
+  "env/lib/python2.7/site-packages/wheel/test/test_tool.py::test_keygen": true
+}

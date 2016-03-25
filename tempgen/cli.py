@@ -54,9 +54,10 @@ def main(language, example):
                 param_id = len(problem["params"]) + 1
                 param = {}
                 click.echo("Param %d" % param_id)
+                param["name"] = click.prompt('Param Name', show_default=True, default="a")
                 param["type"] = click.prompt('Param Type ' + available_types, show_default=True, default="int")
                 param["description"] = click.prompt('Param Description', show_default=True,
-                                                            default="An integer")
+                                                    default="An integer")
                 more_params = False
                 if click.confirm('Add more params?', show_default=True):
                     more_params = True

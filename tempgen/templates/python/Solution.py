@@ -8,4 +8,4 @@ class {{ classname }}:
     def {{ methodname }}(self, {% for param in params -%}
             {{ param.name }}{% if not loop.last %}, {% endif %}
             {%- endfor %}):
-        # Your code here
+        # {{ hint }}

@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <string>
 #include "Solution.cpp"
 
 using namespace std;
@@ -11,14 +12,17 @@ int main(int argc, char *argv[]) {
 
     string data;
 
+    {% for param in params -%}
     std::getline(in, data);
-    int a = stoi(data);
+    {{ param.repr }} {{ param.name }} = {{ param.decoder }}(data);
+    {% endfor %}
 
-    std::getline(in, data);
-    int b = stoi(data);
+    {{ classname }} solution;
+    out << solution.{{ methodname }}(
+    {%- for param in params -%}
+    {{ param.name }}{% if not loop.last %}, {% endif %}
+    {%- endfor %}) << std::endl;
 
-    Solution solution;
-    out << solution.aplusb(a, b) << std::endl;
     out.close();
     return 0;
 }

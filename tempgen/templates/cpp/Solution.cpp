@@ -1,12 +1,14 @@
-class Solution {
+class {{ classname }} {
 public:
     /*
-     * @param a: The first integer
-     * @param b: The second integer
-     * @return: The sum of a and b
+     {% for param in params -%}
+     * @param {{ param.name }}: {{ param.desc }}
+     {% endfor -%}
+     * @return: {{ return.desc }}
      */
-    int aplusb(int a, int b) {
-        // write your code here, try to do it without arithmetic operators.
-        return a + b;
+    {{ return.repr }} {{ methodname }}({% for param in params -%}
+            {{ param.repr }} {{ param.name }}{% if not loop.last %}, {% endif %}
+            {%- endfor %}) {
+        // {{ hint }}
     }
 };

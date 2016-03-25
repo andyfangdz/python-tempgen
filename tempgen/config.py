@@ -11,6 +11,7 @@ def extend(a, b):
     """
     return dict(b, **a)
 
+
 config = {
     "languages": {
         "python": {
@@ -45,14 +46,30 @@ config = {
                 "Solution": templates["java"]["Solution"],
                 "Main": templates["java"]["Main"]
             }
-        }
+        },
+        "cpp": {
+            "lang": "cpp",
+            "ext": "cpp",
+            "rules": {
+                "default": {
+                    "encoder": "to_string"
+                },
+                "int": {
+                    "repr": "int",
+                    "decoder": "stoi"
+                }
+            },
+            "templates": {
+                "Solution": templates["cpp"]["Solution"],
+                "Main": templates["cpp"]["Main"]
+            }
+        },
     },
 
     "types": [
         "int"
     ]
 }
-
 
 # Update all rules with defaults w.r.t. their language
 for lang in config["languages"]:

@@ -1,15 +1,5 @@
 from templates import templates
-
-
-def extend(a, b):
-    """http://stackoverflow.com/a/12697215/4944625
-    Create a new dictionary with a's properties extended by b,
-    without overwriting.
-
-    >>> extend({'a':1,'b':2},{'b':3,'c':4})
-    {'a': 1, 'c': 4, 'b': 2}
-    """
-    return dict(b, **a)
+from utils import extend
 
 
 config = {
@@ -57,7 +47,7 @@ config = {
                 "int": {
                     "repr": "int",
                     "decoder": "stoi"
-                }
+                },
             },
             "templates": {
                 "Solution": templates["cpp"]["Solution"],
@@ -77,19 +67,3 @@ for lang in config["languages"]:
         config["languages"][lang]["rules"][rule] = \
             extend(config["languages"][lang]["rules"][rule],
                    config["languages"][lang]["rules"]["default"])
-
-'''
-"cpp": {
-            "lang": "cpp",
-            "ext": "cpp",
-            "rules": {
-                "default": {
-                    "encoder": "to_string"
-                },
-                "int": {
-                    "repr": "int",
-                    "parser": "stoi"
-                }
-            }
-        },
-'''

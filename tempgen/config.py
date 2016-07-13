@@ -13,6 +13,9 @@ config = {
                 },
                 "int": {
                     "decoder": "int"
+                },
+                "double": {
+                    "decoder": "float"
                 }
             },
             "templates": {
